@@ -33,20 +33,20 @@ class UserSeeder extends Seeder
         ]);
 
         // Shop user
-        User::create([
-            'name' => 'Shop Owner',
-            'email' => 'shop@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'shop',
+        // User::create([
+        //     'name' => 'Shop Owner',
+        //     'email' => 'shop@example.com',
+        //     'password' => Hash::make('password'),
+        //     'role' => 'shop',
           
-        ]);
+        // ]);
 
         // Customer user
-        User::create([
-            'name' => 'Customer One',
-            'email' => 'customer@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'customer',
-        ]);
+        // User::create([
+        //     'name' => 'Customer One',
+        //     'email' => 'customer@example.com',
+        //     'password' => Hash::make('password'),
+        //     'role' => 'customer',
+        // ]);
     }
 }
