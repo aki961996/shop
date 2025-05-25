@@ -49,8 +49,19 @@
             processData: false,
             contentType: false,
             success: function(res) {
-                alert('Product Updated Successfully');
-                window.location.href = "{{ route('products') }}";
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Product Updated Successfully',
+                    confirmButtonColor: '#3085d6',
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = "{{ route('products') }}";
+                });
+
+                // window.location.href = "{{ route('products') }}";
             },
             error: function(xhr) {
                 alert('Error: ' + xhr.responseJSON.message);

@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'email' => 'shop@example.com',
             'password' => Hash::make('password'),
             'role' => 'shop',
-            'shop_id' => $shop->id,
+          
         ]);
 
         // Customer user

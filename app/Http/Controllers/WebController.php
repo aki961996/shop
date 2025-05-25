@@ -13,9 +13,10 @@ class WebController extends Controller
     // Public Pages
     public function home()
     {
-        $products = Product::with('shop')->where('status', true)->get();
+        $products = Product::with('shop')->where('status', true)->paginate(7);
         return view('frondend.product', compact('products'));
     }
+
 
 
 
@@ -30,8 +31,8 @@ class WebController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'shop_id' => 'required|exists:shops,id',
             'status' => 'required|boolean',
         ]);
@@ -46,6 +47,8 @@ class WebController extends Controller
 
     public function edit($id)
     {
+        $id = decrypt($id);
+
         $product = Product::findOrFail($id);
         $shops = Shop::all();
         return view('frondend.edit', compact('product', 'shops'));
@@ -274,7 +277,9 @@ class WebController extends Controller
 
     public function products()
     {
-        $products = Product::with('shop')->where('status', true)->get();
+        $products = Product::with('shop')->where('status', true)->paginate(7);
+
+
         return view('frondend.product', compact('products'));
     }
 }

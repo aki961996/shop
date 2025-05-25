@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary">Product Listing</h2>
+        <h2 class="text-primary">Products</h2>
         <a href="{{ route('products.create') }}" class="btn btn-success">+ Add Product</a>
     </div>
 
@@ -18,11 +18,17 @@
                     <h5 class="card-title">{{ $product->name }}</h5>
                     <p class="text-muted mb-1">₹{{ number_format($product->price, 2) }}</p>
                     <p class="text-muted mb-1">Shop: {{ $product->shop->name ?? 'N/A' }}</p>
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm mt-2">Edit</a>
+                    <!-- <a href="{{ route('products.edit', encrypt($product->id) ) }}" class="btn btn-primary btn-sm mt-2">Edit</a> -->
+                     <a href="{{ route('products.edit', ['id' => encrypt($product->id)]) }}" class="btn btn-primary btn-sm mt-2">Edit</a>
+
                 </div>
             </div>
         </div>
         @endforeach
     </div>
+    <div class="d-flex justify-content-center mt-4">
+    {{ $products->links() }}
+</div>
+
 </div>
 @endsection

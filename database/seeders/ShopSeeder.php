@@ -13,7 +13,7 @@ class ShopSeeder extends Seeder
      */
     public function run(): void
     {
-       Shop::truncate(); // Clear existing data (optional)
+    //    Shop::truncate(); // Clear existing data (optional)
 
         $shops = [
             [
