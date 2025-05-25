@@ -61,8 +61,8 @@ class WebController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'shop_id' => 'required|exists:shops,id',
             'status' => 'required|boolean',
         ]);
